@@ -1,6 +1,6 @@
 class Pokemon
   
-  attr_accessor :id, :name, :type, :database
+  attr_accessor :id, :name, :type, :db
   
   @@all = []
   
@@ -8,7 +8,7 @@ class Pokemon
     @id = id
     @name = name
     @type = type
-    @database = database
+    @db = db
     @@all << self
   end
   
@@ -16,13 +16,13 @@ class Pokemon
     @@all
   end
   
-  def self.save(name, type, database)
-    database.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
+  def self.save(name, type, db)
+    db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
   end
   
-  def self.find(id, database)
-    pokemon = database.execute("SELECT * FROM pokemon WHERE id=?", id).first
-   Pokemon.new(pokemon, database)
+  def self.find(id, db)
+    pokemon = db.execute("SELECT * FROM pokemon WHERE id=?", id).first
+   Pokemon.new(pokemon, db)
   end
     
 
