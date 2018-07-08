@@ -27,8 +27,8 @@ class Pokemon
     pokemon
   end
     
-  def alter_hp(new_hp, )
-    db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", new_hp, id)
+  def alter_hp(hp, db)
+    db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", hp, id)
   end  
 
 end
