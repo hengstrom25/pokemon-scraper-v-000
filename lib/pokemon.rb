@@ -20,5 +20,5 @@ class Pokemon
     db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
   end
     
-  end
+
 end
